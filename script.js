@@ -1,7 +1,7 @@
 "use strict";
-let facil = document.getElementById('facil')
-let medio = document.getElementById('medio')
-let dificil = document.getElementById('dificil')
+let easy_Btn = document.getElementById('easy')
+let normal_Btn = document.getElementById('normal')
+let hard_Btn = document.getElementById('hard')
 let restartBtn = document.querySelectorAll('.restart')
 let newgameBtn = document.querySelectorAll('.newgame')
 let cardsdataembaralhados
@@ -10,34 +10,27 @@ let lockmode = true
 let firstcard = [,]
 let controle = 0
 
-facil.addEventListener('click', iniciar)
-medio.addEventListener('click', iniciar)
-dificil.addEventListener('click', iniciar)
-
-
-
+easy_Btn.addEventListener('click', iniciar)
+normal_Btn.addEventListener('click', iniciar)
+hard_Btn.addEventListener('click', iniciar)
 
 function iniciar() {
     mudandoatela()
     let id = this.id
-    if (id == 'facil') {
+    if (id == 'easy') {
         techs = ['bootstrap', 'css', 'firebase', 'electron', 'html', 'javascript']
         let cards = createcardsdata(techs)
         cardsdataembaralhados = shuffle(cards)
         insertcards(cardsdataembaralhados)
         add_flip()
         startfacil()
-
-
-    } else if (id == 'medio') {
+    } else if (id == 'normal') {
         techs = ['bootstrap', 'css', 'firebase', 'electron', 'html', 'javascript', 'jquery', 'mongo']
         let cards = createcardsdata(techs)
         cardsdataembaralhados = shuffle(cards)
         insertcards(cardsdataembaralhados)
         add_flip()
         startmedio()
-
-
     } else {
         techs = ['bootstrap', 'css', 'firebase', 'electron', 'html', 'javascript', 'jquery', 'mongo', 'node', 'react']
         let cards = createcardsdata(techs)
@@ -45,17 +38,17 @@ function iniciar() {
         insertcards(cardsdataembaralhados)
         add_flip()
         startdificil()
-
-
     }
 }
 
 function mudandoatela() {
-    let menu = document.getElementById('menu')
-    let title = document.getElementById('title')
+    let initial_menu = document.getElementById('menu')
+    let initial_title = document.querySelectorAll('.Game_title')
+    let initial_desc = document.querySelectorAll('.Game_desc')
     let head = document.getElementById('head')
-    menu.style = 'display:none;'
-    title.style = 'display:none;'
+    initial_menu.style = 'display:none;'
+    initial_title[0].style = 'display:none;'
+    initial_desc[0].style = 'display:none;'
     head.style = 'display:block;'
 }
 
@@ -70,7 +63,6 @@ function createcardsdata(techs) {
 }
 
 function createpair(tech, id) {
-
     return [{
         id: id,
         icon: tech,
@@ -99,7 +91,6 @@ function shuffle(cards) {
 
 function insertcards(cards) {
     let board = document.getElementById('board')
-    // let divcards = turn_into_div(cards)
     for (let i = 0; i < cards.length; i++) {
         for (let card of cards[i]) {
             board.innerHTML += divcard(card)
@@ -128,7 +119,6 @@ function add_flip() {
             }
         }
     })
-
 }
 function change_relative_object(div) {
     if (controle % 2 == 0) {
@@ -137,9 +127,7 @@ function change_relative_object(div) {
     } else {
         let secondcard = choose_relative_object(div)
         secondcard.flipped = false
-
     }
-
 }
 function choose_relative_object(div) {
     for (let i = 0; i < cardsdataembaralhados.length ; i++) {
@@ -149,7 +137,6 @@ function choose_relative_object(div) {
             }
         }
     }
-
 }
 function checkmatch(element) {
     if (controle % 2 == 0) {
@@ -169,7 +156,6 @@ function checkmatch(element) {
         return
     } else { controle++ }
     change_relative_object(element)
-
 }
 function checkgameover(){
     let flippedcards =[]
@@ -181,12 +167,9 @@ function checkgameover(){
     }
     if(flippedcards.length==0){
         let menufinal = document.getElementById('menu_final')
-        console.log(menufinal)
         menufinal.style.display='flex'
     }
-    
 }
-
 function startfacil() {
     let board = document.getElementById('board')
     board.style.display = 'grid'
@@ -242,10 +225,12 @@ function newgame(){
     controle = 0
 }
 function back_to_menu(){
-    let menu = document.getElementById('menu')
-    let title = document.getElementById('title')
+    let initial_menu = document.getElementById('menu')
+    let initial_title = document.querySelectorAll('.Game_title')
+    let initial_desc = document.querySelectorAll('.Game_desc')
     let head = document.getElementById('head')
-    menu.style = 'display:flex;'
-    title.style = 'display:inline-block;'
+    initial_menu.style = 'display:flex;'
+    initial_title[0].style = 'display:block;'
+    initial_desc[0].style = 'display:block;'
     head.style = 'display:none;'
 }

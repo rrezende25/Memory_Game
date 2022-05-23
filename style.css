@@ -1,47 +1,92 @@
 *{
     font-family: 'Righteous', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 body{
     margin:0;
     padding: 0;
     height: 100vh;
     background-image: linear-gradient(45deg,#0E376F,#27A8A6);
-
+    border: #181D1F 1px solid;
 }
+/* first page menu of difficulty levels */
+    /* header title & desc */
+.text_style{
+    color: #F39422;
+    -webkit-text-stroke: 0.3px #181D1F;
+    text-align: center;
+    padding: 5px;
+}
+.Game_title{
+    font-size: 8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.Game_desc{
+    font-size: 4rem;
+    margin-top: 0;
+}
+    /* options menu */
+#menu{
+    color: #142850;
+    background-color: #82ECFF;
+    font-size: 1rem;
+    width: 50em;
+    height: 22em;
+    border-radius: 30px;
+    letter-spacing: 0.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: auto;
+}
+#menu h1{
+    font-size: 4em;
+}
+#menu button{
+    font-size: 3em;
+    margin: 0.208em;
+    color: #181D1F;;
+    background-color: #82ECFF;
+    border: 2px solid #F39422;
+    border-radius: 100px;
+    padding: 0.2em;
+}
+#menu button:hover{
+    color: #82ECFF;
+    background-color: #F39422;
+    transition: 0.5s;
+}
+/* second page Game */
+    /* header & options */
 header{
-    font-size: 2rem;
-    padding: 7px;
-    padding-left: 7vw;
-    padding-right: 7vw;
-    margin-top: 3vh;
+    font-size: 1rem;
+    padding: 0.5em;
+    padding-left: 8em;
+    padding-right: 8em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
     color: #F39422;
     overflow: hidden;
     display: none;
 }
-#title{
-    font-size: 8rem;
-    color: #F39422;
-    -webkit-text-stroke: 0.3px #181D1F;
-    display: inline-block;
-    position: relative;
-    left:50%;
-    transform: translateX(-50%);
-}
 header div{
     display: inline-block;
     margin: 0;
-    padding: 8px;
+    padding: 0.5em;
+    font-size: 2em;
 }
 header button{
-    font-size: 2rem;
+    font-size: 2em;
     float: right;
-    margin-right: 1vw;
+    margin-right: 0.5em;
     border: 3px solid #f37d22 ;
     background-color: #82ECFF;
     border-radius: 100px;
     color: #f37d22;
     box-shadow: 4px 4px 4px rgba(0,0,0,1);
-    padding: 12px;
+    padding: 0.375em;
     
 }
 
@@ -52,46 +97,18 @@ header button:hover{
     transition: 0.5s;
     cursor: pointer;
 }
-/* parte refernte ao menu */
-#menu{
-    color: #142850;
-    font-size: 3rem;
-    width: 40%;
-    height: 50%;
-    background-color: #82ECFF;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    margin: auto;
-    letter-spacing: 3.5px;
-}
-#menu button{
-    font-size: 3rem;
-    margin: 10px;
-    color: #181D1F;;
-    background-color: #82ECFF;
-    border: 2px solid #F39422;
-    border-radius: 100px;
-    padding: 8px;
-}
-#menu button:hover{
-    color: #82ECFF;
-    background-color: #F39422;
-    transition: 0.5s;
-}
 /* parte referente ao tabuleiro */
 #board{
-    width: 80vmin;
+    width: 80vw;
     margin: auto;
     display: none;
-    gap: 1vmin;
+    /*gap: 1vmin;talvez melhor manter em 1 vmin  */
     justify-items:center ;
     
 }
 .card{
-    height: 16vmin;
-    width: 16vmin;
+    height: 15vmin;
+    width: 15vmin;
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -114,7 +131,7 @@ header button:hover{
 .back-face{
     background-color: #82ECFF;
     color: #181D1F;
-    font-size: 30px;
+    font-size: 2rem;
 }
 .flip{
     transition: 1s;
@@ -137,10 +154,14 @@ header button:hover{
     align-items: center;
     color: white;
     font-size: 2rem;
+    text-align: center;
 
 }
+#menu_final h1{
+    font-size: 2em;
+}
 #menu_final button{
-    font-size: 2rem;
+    font-size: 3em;
     float: right;
     margin-right: 1vw;
     border: 3px solid #f37d22 ;
@@ -161,111 +182,125 @@ header button:hover{
 
 }
 @media screen and (max-width:1600px ) and (min-width:1250px ){
-    #title{
-        font-size: 7rem;
+    *{
+        font-size: 13px;
     }
-    #menu{
-        font-size: 2.5rem;
-        height: 40%;
-        min-height: 300px;
+    .card{
+        height: 16vmin;
+        width: 16vmin;
     }
-    #menu button{
-        font-size: 2.5rem;
-    }
-
-}
-@media screen and (max-width:1250px ) and (min-width:700px ){
-    #title{
-        font-size: 5rem;
-    }
-    #menu{
-        font-size: 2rem;
-        height: 30%;
-        min-width: 450px;
-        min-height: 250px;
-        
-    }
-    #menu button{
-        font-size: 2rem;
-        margin: 8px;
-
-    }
-    header button{
-        font-size: 1.5rem;
-        padding: 8px;
-        
-    }
-    #menu_final{
-        font-size:1.4rem ;
-    }
-
-}
-@media screen and (max-width:700px ) and (min-width:525px ){
-    #title{
-        font-size: 4rem;
-    }
-    #menu{
-        font-size: 2rem;
-        height: 35%;
-        min-width: 450px;
-        min-height: 250px;
-        
-    }
-    #menu button{
-        font-size: 2rem;
-        margin: 8px;
-
-    }
-    header button{
-        font-size: 1.2rem;
-        padding: 8px;
-        
-    }
-    #menu_final{
-        font-size:1rem ;
-    }
-
-}
-@media screen and (max-width:525px ){
-    #title{
+    .back-face{
         font-size: 3rem;
     }
+}
+@media screen and (max-width:1250px ) and (min-width:912px ){
+    *{
+        font-size: 10px;
+    }
     #menu{
-        font-size: 1.5rem;
-        width: 65%;
-        min-width: 375px;
-        min-height: 360px;
-        
-        
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width:912px ) and (min-width:560px ){
+    *{
+        font-size: 9px;
+    }
+    #menu{
+        font-size: 0.55rem;
+        height: 88em;
+    }
+    #menu h1{
+        font-size: 7em;
     }
     #menu button{
-        font-size: 2rem;
-        margin: 8px;
-        padding: 8px;
+        font-size: 6em;
     }
     #levels{
         display: flex;
         flex-direction: column;
     }
-    header{
+}
+@media screen and (max-width:560px ) and (min-width:400px ){
+    *{
+        font-size: 6px;
+    }
+    #menu{
+        font-size: 1.2rem;
+        height: 70em;
+    }
+    #menu h1{
+        font-size: 8em;
+    }
+    #menu button{
+        font-size: 7em;
+    }
+    #levels{
         display: flex;
         flex-direction: column;
-        margin-bottom: 8px;
-        
-
     }
-    header div{
-        display: block;
+    .card{
+        height: 20vmin;
+        width: 18vmin;
     }
-    header button{
-        
-        font-size: 1.2rem;
-        padding: 8px;
-        float: none;
-        
+    .back-face{
+        font-size: 4rem;
+    }
+}
+@media screen and (max-width:400px ) and (min-width:280px ){
+    *{
+        font-size: 6px;
+    }
+    #menu{
+        font-size: 0.8rem;
+        height: 85em;
+    }
+    #menu h1{
+        font-size: 8em;
+    }
+    #menu button{
+        font-size: 7em;
+    }
+    #levels{
+        display: flex;
+        flex-direction: column;
     }
     #menu_final{
-        font-size:0.8rem ;
+        font-size: 3rem;
     }
-
+    .card{
+        height: 20vmin;
+        width: 18vmin;
+    }
+    .back-face{
+        font-size: 4rem;
+    }
+}
+@media screen and (max-width:280px ){
+    *{
+        font-size: 5px;
+    }
+    #menu{
+        font-size: 0.8rem;
+        height: 85em;
+    }
+    #menu h1{
+        font-size: 8em;
+    }
+    #menu button{
+        font-size: 7em;
+    }
+    #levels{
+        display: flex;
+        flex-direction: column;
+    }
+    #menu_final{
+        font-size: 3rem;
+    }
+    .card{
+        height: 20vmin;
+        width: 18vmin;
+    }
+    .back-face{
+        font-size: 4rem;
+    }
 }
