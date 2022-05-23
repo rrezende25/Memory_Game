@@ -1,0 +1,271 @@
+*{
+    font-family: 'Righteous', sans-serif;
+}
+body{
+    margin:0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(45deg,#0E376F,#27A8A6);
+
+}
+header{
+    font-size: 2rem;
+    padding: 7px;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    margin-top: 3vh;
+    color: #F39422;
+    overflow: hidden;
+    display: none;
+}
+#title{
+    font-size: 8rem;
+    color: #F39422;
+    -webkit-text-stroke: 0.3px #181D1F;
+    display: inline-block;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+header div{
+    display: inline-block;
+    margin: 0;
+    padding: 8px;
+}
+header button{
+    font-size: 2rem;
+    float: right;
+    margin-right: 1vw;
+    border: 3px solid #f37d22 ;
+    background-color: #82ECFF;
+    border-radius: 100px;
+    color: #f37d22;
+    box-shadow: 4px 4px 4px rgba(0,0,0,1);
+    padding: 12px;
+    
+}
+
+header button:hover{
+    color: #82ECFF;
+    background-color: #f37d22;
+    border: 3px solid #f37d22;
+    transition: 0.5s;
+    cursor: pointer;
+}
+/* parte refernte ao menu */
+#menu{
+    color: #142850;
+    font-size: 3rem;
+    width: 40%;
+    height: 50%;
+    background-color: #82ECFF;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: auto;
+    letter-spacing: 3.5px;
+}
+#menu button{
+    font-size: 3rem;
+    margin: 10px;
+    color: #181D1F;;
+    background-color: #82ECFF;
+    border: 2px solid #F39422;
+    border-radius: 100px;
+    padding: 8px;
+}
+#menu button:hover{
+    color: #82ECFF;
+    background-color: #F39422;
+    transition: 0.5s;
+}
+/* parte referente ao tabuleiro */
+#board{
+    width: 80vmin;
+    margin: auto;
+    display: none;
+    gap: 1vmin;
+    justify-items:center ;
+    
+}
+.card{
+    height: 16vmin;
+    width: 16vmin;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.front-face, .back-face{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.6);
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front-face{
+    background-color: #181D1F;
+    transform: rotateY(180deg);
+}
+.back-face{
+    background-color: #82ECFF;
+    color: #181D1F;
+    font-size: 30px;
+}
+.flip{
+    transition: 1s;
+    transform: rotateY(180deg);
+}
+.flip_back{
+    transition: 1s;
+    transform: rotateY(-180deg);
+}
+/* parte referente ao menu final */
+#menu_final{
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0, 0, 0, 0.777);
+    position: absolute;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+
+}
+#menu_final button{
+    font-size: 2rem;
+    float: right;
+    margin-right: 1vw;
+    border: 3px solid #f37d22 ;
+    background-color: #82ECFF;
+    border-radius: 100px;
+    color: #f37d22;
+    box-shadow: 4px 4px 4px rgba(0,0,0,1);
+    padding: 12px;
+    
+    
+}
+#menu_final button:hover{
+    color: #82ECFF;
+    background-color: #f37d22;
+    border: 3px solid #f37d22;
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+@media screen and (max-width:1600px ) and (min-width:1250px ){
+    #title{
+        font-size: 7rem;
+    }
+    #menu{
+        font-size: 2.5rem;
+        height: 40%;
+        min-height: 300px;
+    }
+    #menu button{
+        font-size: 2.5rem;
+    }
+
+}
+@media screen and (max-width:1250px ) and (min-width:700px ){
+    #title{
+        font-size: 5rem;
+    }
+    #menu{
+        font-size: 2rem;
+        height: 30%;
+        min-width: 450px;
+        min-height: 250px;
+        
+    }
+    #menu button{
+        font-size: 2rem;
+        margin: 8px;
+
+    }
+    header button{
+        font-size: 1.5rem;
+        padding: 8px;
+        
+    }
+    #menu_final{
+        font-size:1.4rem ;
+    }
+
+}
+@media screen and (max-width:700px ) and (min-width:525px ){
+    #title{
+        font-size: 4rem;
+    }
+    #menu{
+        font-size: 2rem;
+        height: 35%;
+        min-width: 450px;
+        min-height: 250px;
+        
+    }
+    #menu button{
+        font-size: 2rem;
+        margin: 8px;
+
+    }
+    header button{
+        font-size: 1.2rem;
+        padding: 8px;
+        
+    }
+    #menu_final{
+        font-size:1rem ;
+    }
+
+}
+@media screen and (max-width:525px ){
+    #title{
+        font-size: 3rem;
+    }
+    #menu{
+        font-size: 1.5rem;
+        width: 65%;
+        min-width: 375px;
+        min-height: 360px;
+        
+        
+    }
+    #menu button{
+        font-size: 2rem;
+        margin: 8px;
+        padding: 8px;
+    }
+    #levels{
+        display: flex;
+        flex-direction: column;
+    }
+    header{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+        
+
+    }
+    header div{
+        display: block;
+    }
+    header button{
+        
+        font-size: 1.2rem;
+        padding: 8px;
+        float: none;
+        
+    }
+    #menu_final{
+        font-size:0.8rem ;
+    }
+
+}
